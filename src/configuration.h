@@ -18,7 +18,7 @@
 #define MQTT_PASSWORD   "viktor"
 const char* mqtt_server = "192.168.0.107";
 
-#define INTERVAL        20*60000 // 15 min delay between publishing
+#define INTERVAL        20*60000 // 20 min delay between publishing
 
 
 #ifdef FOYER
@@ -79,7 +79,7 @@ const char* mqtt_server = "192.168.0.107";
 
 #ifdef BED
   #define MQTT_CLIENT_ID  "bed" //MQTT id client 
-  int IP_ADDRESS[4] =        {192, 168, 0, 202};//Bed room
+  int IP_ADDRESS[4] =        {192, 168, 0, 157};//Bed room
   uint8_t MAC[6] =          {0x02,0xA1,0x08,0x03,0x04,0x05};
   const char* tempTopic = "sensor/bed/temperature";
   const char* humTopic = "sensor/bed/humidity";
