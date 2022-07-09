@@ -45,6 +45,7 @@ char hum[10];
 // Methodes
 void sendData();     
 void resetEthernet();
+void serialPrint(String message);
 
 void setup() {
   #ifdef DEBUG
@@ -91,13 +92,9 @@ void sendData() {
         
       } else {
         serialPrint("failed, rc=");
-        serialPrint(mqttClient.state());
         serialPrint(" try again in 2 seconds");
         
         delay(2000);
-        Serial.print("Connection atempt: "); 
-        serialPrint(connectionAtempt);
-
         connectionAtempt ++;
       }
     }
@@ -105,6 +102,10 @@ void sendData() {
   //mqttClient.loop();
   delay(200);
   mqttClient.disconnect();
+  
+  //turn off W5500
+  pinMode(RESET_PIN, OUTPUT);
+  digitalWrite(RESET_PIN, LOW);
 }
 
 void resetEthernet() {
@@ -127,7 +128,6 @@ void resetEthernet() {
   }
   
   mqttClient.setServer(mqtt_server,1883);
-  serialPrint(Ethernet.localIP());
 }
 
 // Serial print if debug mode is on
