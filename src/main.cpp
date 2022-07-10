@@ -63,7 +63,7 @@ void loop() {
 
   //Read temperature end humidity
   dtostrf(hdc1080.readTemperature(),5,1,temp);
-  dtostrf(hdc1080.readHumidity(),5,1,hum);
+  dtostrf(hdc1080.readHumidity(),3,0,hum);
 
 
   sendData();
@@ -102,7 +102,6 @@ void sendData() {
   //mqttClient.loop();
   delay(200);
   mqttClient.disconnect();
-  
   //turn off W5500
   pinMode(RESET_PIN, OUTPUT);
   digitalWrite(RESET_PIN, LOW);
