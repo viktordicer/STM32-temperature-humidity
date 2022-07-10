@@ -1,16 +1,16 @@
 
 // #define	FOYER
-// #define	CHILD1
+//#define	CHILD1
 // #define	CHILD2
-// #define	BATH
+#define	BATH
 // #define	TECHNICAL
 // #define	HALL
 // #define	CHILD3
-// #define	BED
-// #define	OFFICE
-// #define	LARDER
-#define	KITCHEN
-// #define	LIVING
+//#define	BED
+//#define	OFFICE
+//#define	LARDER
+//#define	KITCHEN
+//#define	LIVING
 
 #define RESET_PIN       PA0  //Reset pin for W5500
 
@@ -79,8 +79,8 @@ const char* mqtt_server = "192.168.0.107";
 
 #ifdef BED
   #define MQTT_CLIENT_ID  "bed" //MQTT id client 
-  int IP_ADDRESS[4] =        {192, 168, 0, 157};//Bed room
-  uint8_t MAC[6] =          {0x02,0xA1,0x08,0x03,0x04,0x05};
+  int IP_ADDRESS[4] =        {192, 168, 0, 203};//Bed room
+  uint8_t MAC[6] =          {0x06,0xA2,0x08,0x03,0x04,0x05};
   const char* tempTopic = "sensor/bed/temperature";
   const char* humTopic = "sensor/bed/humidity";
 #endif
